@@ -1,0 +1,91 @@
+<div class="row mt-2">
+  <div class="col-md-6 my-4">
+    <div class="card h-100 gradient-box">
+      <h4 class="card-header">
+        <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+        {{ fournisseur.libelle}}
+      </h4>
+      <div class="card-body">
+        <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+        <table *ngIf="users" class="table">
+          <tr>
+            <th>Contact: </th>
+            <td>{{users.civil + ' '+ users.nom +' '+ users.prenom}}</td>
+          </tr>
+          <tr>
+            <th>Adresse: </th>
+            <td>{{fournisseur.adresse}}, {{fournisseur.codePostal}} {{fournisseur.ville}}</td>
+          </tr>
+          <tr>
+            <th>Telephone Fixe: </th>
+            <td>{{fournisseur.telFixe|telephone}}</td>
+          </tr>
+          <tr>
+            <th>Téléphone Portable: </th>
+            <td>{{fournisseur.telPortable|telephone}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 my-4">
+    <div class="card h-100 gradient-box">
+      <h4 class="card-header m-0 p-0">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item">
+            <a routerLink="/home"> Accueil</a>
+          </li>
+          <li class="breadcrumb-item">
+            Enlèvements n° {{ id }}
+          </li>
+        </ol>
+      </h4>
+      <div class="card-body text-center">
+        <!-- TODO Emplacement Navigation Module Enlevement -->
+        <p class="mt-2"> Pour des enlèvements veuillez appeler au 07 82 21 89 18</p>
+        <p>
+          Lundi - Vendredi
+          9h00 - 21h00
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="card mt-2 gradient-box">
+      <h4 class="card-header">
+        Liste du matériels
+        <button (click)="ExportTOExcel()" class="btn btn-success btn-sm float-right">Export</button>
+        <button (click)="generatePdf()" class="btn btn-success btn-sm float-right mr-1">Certificat</button>
+      </h4>
+      <div class="card-body rounded-0">
+        <table class="table table-hover" #TABLE #table>
+          <thead>
+          <tr>
+            <th>Ref:</th>
+            <th>Type:</th>
+            <th>Marque:</th>
+            <th>Modèle:</th>
+            <th>N° Serie Fab.</th>
+            <th>N° Interne</th>
+            <th>Etat:</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let materiel of materiels">
+            <td>{{ materiel.id }}</td>
+            <td>{{ materiel.type }}</td>
+            <td>{{ materiel.marque }}</td>
+            <td>{{ materiel.modele }}</td>
+            <td>{{ materiel.nSerieFab }}</td>
+            <td>{{ materiel.nInterne }}</td>
+            <td>{{ materiel.etat }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card-footer rounded-0">
+        <a routerLink="/" class="btn btn-outline-success w-100">Accueil</a>
+      </div>
+    </div>
+  </div>
+</div>

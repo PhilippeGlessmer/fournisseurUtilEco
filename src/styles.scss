@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+a { cursor: pointer }
+body{
+  background-image: url("assets/images/body1.jpg");
+  background-size: cover;
+}
+
+
+.gradient-box {
+    $border: 3px;
+
+  background-clip: padding-box; /* !importanté */
+  border: solid $border transparent; /* !importanté */
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: -1;
+    margin: -$border; /* !importanté */
+    border-radius: inherit; /* !importanté */
+    background: linear-gradient(to right, #2F805D, #97BF1E);
+  }
+}
+.image-center{
+  margin-left: auto;
+  margin-right: auto;
+}
+.gradient-btn{
+  color: #ffffff;
+  font-weight: bold;
+  background: linear-gradient(to left, #2F805D, #97BF1E);
+}

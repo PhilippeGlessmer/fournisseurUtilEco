@@ -1,0 +1,7 @@
+{
+  "/api/*": {
+    "target": "https://utileco.glessmer.fr",
+    "secure": false,
+    "logLevel": "debug"
+  }
+}

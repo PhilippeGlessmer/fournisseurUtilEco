@@ -66,7 +66,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "InterfaceFournisseur:build"
+            "browserTarget": "InterfaceFournisseur:build",
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -103,7 +104,7 @@
             "tsConfig": [
               "tsconfig.app.json",
               "tsconfig.spec.json",
-              "e2e/tsconfig.json"
+              "e2e/architecttsconfig.json"
             ],
             "exclude": [
               "**/node_modules/**"
